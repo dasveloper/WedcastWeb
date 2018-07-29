@@ -8,11 +8,10 @@ module.exports = merge(webpackCommonConfig, {
 		publicPath: '/dist/',
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
 	],
 	devtool: "source-map",
 	devServer: {
-		hot: true,
+	
 	}
 });

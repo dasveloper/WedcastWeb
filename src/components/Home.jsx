@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { Component } from "react";
 
-const formatName = user => `${user.firstName} ${user.lastName}`;
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { counter: 0 };
+  }
 
-const user = {
-  firstName: 'John',
-  lastName: 'Doe'
-};
+  componentDidMount() {
+    this.interval = setInterval(this.increment.bind(this), 1000);
+  }
 
-const Home = () => (
-  <div>
-    <h1>Hello, {formatName(user)}!</h1>
-  </div>
-)
+  increment() {
+    this.setState(({ counter }) => {
+      return { counter: counter + 1 };
+    });
+  }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
-export default Home;
+  render() {
+    const { counter } = this.state;
+
+    return (
+      <header>
+        <div>Webpack is doing its thing with React and ES2015</div>
+        <div>{counter}</div>
+      </header>
+    );
+  }
+}

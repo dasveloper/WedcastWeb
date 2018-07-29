@@ -1,6 +1,7 @@
+@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+
 body {
-  background: linear-gradient(to left,#000428 ,#004e92);
-  color: #f8f8f8;
+  margin: 0;
   display: flex;
   justify-content: center;
 }
@@ -8,4 +9,34 @@ body {
 h1 {
   color: #f8f8f8;
   font-family: helvetica;
+}
+.image-gallery-content {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .image-gallery-slide-wrapper,
+  .image-gallery-swipe,
+  .image-gallery-slides,
+  .image-gallery-slide {
+    height: 100%;
+    width: 100%;
+    .image-gallery-image {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
 }
